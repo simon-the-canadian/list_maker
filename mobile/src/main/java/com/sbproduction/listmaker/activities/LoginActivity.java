@@ -3,18 +3,11 @@ package com.sbproduction.listmaker.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.sbproduction.listmakerpro.R;
-import com.sbproduction.listmakerpro.network.HttpManager;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-
-import java.io.IOException;
+import com.sbproduction.listmaker.R;
 
 public class LoginActivity extends AppCompatActivity
 {
@@ -64,27 +57,27 @@ public class LoginActivity extends AppCompatActivity
 		String username = mUsername.getText().toString();
 		String password = mPassword.getText().toString();
 
-		HttpManager.login(username, password, new Callback()
-		{
-			@Override
-			public void onFailure(Request request, IOException e)
-			{
-				Log.e("LoginActivity", "Request failed: " + e.toString());
-			}
-
-			@Override
-			public void onResponse(Response response) throws IOException
-			{
-				if (!response.isSuccessful())
-				{
-					Log.e("LoginActivity", "Request failed: error " + response.code() + " - " + response.message());
-				}
-				else
-				{
-					Intent intent = new Intent(LoginActivity.this, ListActivity.class);
-					startActivity(intent);
-				}
-			}
-		});
+//		HttpManager.login(username, password, new Callback()
+//		{
+//			@Override
+//			public void onFailure(Request request, IOException e)
+//			{
+//				Log.e("LoginActivity", "Request failed: " + e.toString());
+//			}
+//
+//			@Override
+//			public void onResponse(Response response) throws IOException
+//			{
+//				if (!response.isSuccessful())
+//				{
+//					Log.e("LoginActivity", "Request failed: error " + response.code() + " - " + response.message());
+//				}
+//				else
+//				{
+//					Intent intent = new Intent(LoginActivity.this, ListActivity.class);
+//					startActivity(intent);
+//				}
+//			}
+//		});
 	}
 }

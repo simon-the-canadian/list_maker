@@ -1,12 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.sbproduction.listmaker"
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,19 +23,32 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    wearApp project(':wear')
-    compile 'com.google.android.gms:play-services-wearable:10.2.4'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "com.android.support:support-v4:${support_version}"
+    compile "com.android.support:appcompat-v7:${support_version}"
+    compile "com.android.support:recyclerview-v7:${support_version}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    debugCompile "com.facebook.stetho:stetho:1.4.1"
-    debugCompile "com.facebook.stetho:stetho-okhttp3:1.4.1"
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:2.2.26'
-    testCompile 'org.assertj:assertj-core:3.5.2'
-    testCompile 'org.robolectric:robolectric:3.2.2'
+    wearApp project(':wear')
+    implementation 'com.google.android.gms:play-services-wearable:+'
+
+    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:$dbflow_version"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-core:$dbflow_version"
+    implementation "com.github.Raizlabs.DBFlow:dbflow:$dbflow_version"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}@aar"
+
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.moshi:moshi-kotlin:1.5.0'
+
+    debugCompile "com.facebook.stetho:stetho:1.5.0"
+    debugCompile "com.facebook.stetho:stetho-okhttp3:1.5.0"
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.8.9'
+    testImplementation 'org.assertj:assertj-core:3.8.0'
+    testImplementation 'org.robolectric:robolectric:3.5.1'
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }

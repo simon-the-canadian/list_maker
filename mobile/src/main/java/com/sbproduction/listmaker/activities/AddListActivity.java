@@ -11,14 +11,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.sbproduction.listmakerpro.R;
-import com.sbproduction.listmakerpro.database.ListModel;
-import com.sbproduction.listmakerpro.network.HttpManager;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-
-import java.io.IOException;
+import com.sbproduction.listmaker.R;
+import com.sbproduction.listmaker.database.ListModel;
 
 /**
  * Created by simon on 1/10/16.
@@ -91,32 +85,32 @@ public class AddListActivity extends AppCompatActivity
 	private void handleActionSave()
 	{
 		ListModel newList = new ListModel();
-		newList.setListName(mListName.getText().toString());
+		newList.setName(mListName.getText().toString());
 
-		HttpManager.post(newList, new Callback()
-		{
-			@Override
-			public void onFailure(Request request, IOException e)
-			{
-				if (request != null)
-				{
-
-				}
-			}
-
-			@Override
-			public void onResponse(Response response) throws IOException
-			{
-				if (response != null && response.isSuccessful())
-				{
-					String test = response.body().string();
-
-					if (test != null)
-					{
-
-					}
-				}
-			}
-		});
+//		HttpManager.post(newList, new Callback()
+//		{
+//			@Override
+//			public void onFailure(Request request, IOException e)
+//			{
+//				if (request != null)
+//				{
+//
+//				}
+//			}
+//
+//			@Override
+//			public void onResponse(Response response) throws IOException
+//			{
+//				if (response != null && response.isSuccessful())
+//				{
+//					String test = response.body().string();
+//
+//					if (test != null)
+//					{
+//
+//					}
+//				}
+//			}
+//		});
 	}
 }

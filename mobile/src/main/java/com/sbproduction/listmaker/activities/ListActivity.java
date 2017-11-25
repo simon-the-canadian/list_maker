@@ -6,9 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.sbproduction.listmakerpro.R;
-import com.sbproduction.listmakerpro.database.ListModel;
-import com.sbproduction.listmakerpro.network.HttpManager;
+import com.sbproduction.listmaker.R;
+
 
 /**
  * Created by simon on 9/13/15.
@@ -23,15 +22,15 @@ public class ListActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_list_layout);
 
-		dataToSync();
+//		dataToSync();
 		setupUI();
 		setupClickListeners();
 	}
 
-	private void dataToSync()
-	{
-		HttpManager.get(ListModel.class, ListModel.getModelUrl(), null);
-	}
+//	private void dataToSync()
+//	{
+//		HttpManager.get(ListModel.class, ListModel.getModelUrl(), null);
+//	}
 
 	private void setupUI()
 	{
