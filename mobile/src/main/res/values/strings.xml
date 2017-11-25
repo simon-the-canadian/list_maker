@@ -1,0 +1,18 @@
+<resources>
+	<string name = "app_name">ListMakerPro</string>
+
+	<string name="action_add">Add</string>
+	<string name="action_save">Save</string>
+
+	<string name = "hello_world">Hello world!</string>
+	<string name = "action_settings">Settings</string>
+
+	<!--Login-->
+	<string name = "username">Username</string>
+	<string name = "password">Password</string>
+	<string name = "email">Email</string>
+	<string name = "login">Login</string>
+	<string name = "submit">Submit</string>
+	<string name = "sign_up">Sign Up</string>
+
+</resources>
